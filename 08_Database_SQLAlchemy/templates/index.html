@@ -7,10 +7,17 @@
     <h1> Hello!</h1>
     <form method="POST">
       {{ form.hidden_tag() }}
-      <p>{{ form.name.label}} 
-         {{ form.name()}}
+      <p>{{ form.major.label}} 
+         {{ form.major()}}
       </p>
+      <p>{{ form.coursenum.label}} 
+        {{ form.coursenum()}}
+     </p>
+     <p>{{ form.title.label}} 
+      {{ form.title()}}
+   </p>
     <p>{{ form.submit()}}</p>
     </form>
+
   </body>
 </html>

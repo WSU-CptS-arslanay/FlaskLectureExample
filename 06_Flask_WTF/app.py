@@ -15,7 +15,7 @@ def index():
     if form.validate_on_submit():
         if form.name.data is not None:
             return redirect(url_for('course',name=form.name.data))
-    return render_template('index.html', name=form.name.data, form=form)
+    return render_template('index.html',  form=form)
 
 @app.route('/course/<name>')
 def course(name):

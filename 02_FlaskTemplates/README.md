@@ -1,5 +1,3 @@
-Example 2
-=========
 
 This example shows how a Flask application can work with templates.
 

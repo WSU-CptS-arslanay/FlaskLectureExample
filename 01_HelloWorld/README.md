@@ -1,6 +1,3 @@
----
-## Example 1
----
 
 A simple Flask application.
 =========

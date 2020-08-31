@@ -1,5 +1,5 @@
 
-This example shows how a Flask application can work with Flask-WTF forms.
+Shows examples of Flask-SQLAlchemy: define databse model, query data, insert/update data.
 
 Running the application
 -----------------------
