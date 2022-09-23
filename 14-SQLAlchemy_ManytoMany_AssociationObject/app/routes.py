@@ -28,7 +28,10 @@ def index():
             #check if course already exists
             _coursecount = Course.query.filter_by(major=form.major.data).filter_by(coursenum=form.coursenum.data).count()
             if _coursecount < 1:
-                newcourse = Course(major = form.major.data,coursenum = form.coursenum.data,title = form.title.data, roomid = form.classroom.data.id)
+                print("form.type.data : {}, type of form.type.data: {}".format(form.type.data,type(form.type.data) ))
+                newcourse = Course(major = form.major.data,coursenum = form.coursenum.data,
+                                   title = form.title.data, roomid = form.classroom.data.id,
+                                   type = int(form.type.data))
                 db.session.add(newcourse)
                 db.session.commit()
                 return redirect(url_for('course', courseid = newcourse.id) )

@@ -15,7 +15,7 @@ class CourseForm(FlaskForm):
     coursenum = StringField(label= "Please enter course number:", validators=[DataRequired()])
     title = StringField(label= "Please enter course title:", validators=[DataRequired()])
     classroom = QuerySelectField('Classroom', query_factory = get_rooms, get_label = getRoomLabel , allow_blank=False)
-
+    type = SelectField(label= "Please select course type:", choices = [(1,'In-person'), (2,'Online'), (3,'Video Conferencing'), (4,'Hybrid')])
     submit = SubmitField('Submit')
 
 

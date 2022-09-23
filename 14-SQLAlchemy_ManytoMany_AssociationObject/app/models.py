@@ -8,6 +8,7 @@ class Course(db.Model):
     title = db.Column(db.String(150))
     major = db.Column(db.String(20))
     roomid = db.Column(db.Integer,db.ForeignKey('room.id'))
+    type = db.Column(db.Integer)
     ta_positions = db.relationship('TA_Assignment',back_populates="course_assigned")
 
     def __repr__(self):
