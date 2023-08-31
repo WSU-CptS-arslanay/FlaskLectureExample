@@ -1,15 +1,15 @@
 from __future__ import print_function
 import sys
 from flask import render_template, flash, redirect, url_for, request
-from flask_sqlalchemy import sqlalchemy
 
 from app import app,db
 from app.forms import CourseForm
 from app.models import Course
 
-@app.before_first_request
+@app.before_request
 def initDB(*args, **kwargs):
-    db.create_all()
+    if app.got_first_request:
+        db.create_all()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():  

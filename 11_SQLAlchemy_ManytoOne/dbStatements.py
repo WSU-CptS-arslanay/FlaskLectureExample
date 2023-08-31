@@ -1,6 +1,8 @@
 
+from app import app
 from app import db
 from app.models import Course, Room
+app.app_context().push()
 db.create_all()
 
 # create Room and write it to DB
@@ -32,4 +34,7 @@ thecourse = Course.query.filter_by(major='CptS').filter_by(coursenum='322').firs
 # will retrieve the room for the class
 thecourse.classroom
 
+#query for a room
+theroom = Room.query.filter_by(building = 'Sloan').filter_by(roomNumber=175).first()
+theroom.courses
 

@@ -1,24 +1,24 @@
 from __future__ import print_function
 import sys
 from flask import render_template, flash, redirect, url_for, request
-from flask_sqlalchemy import sqlalchemy
 
 from app import app,db
 from app.forms import CourseForm
 from app.models import Course, Room
 
-@app.before_first_request
+@app.before_request
 def initDB(*args, **kwargs):
-    db.create_all()
-    # create the rooms 
-    allrooms = [{'building' : 'EME', 'roomNumber' : 'B46', 'capacity' : 60}, 
-                {'building' : 'Sloan', 'roomNumber' : '175', 'capacity' : 100},
-                {'building' : 'Sloan', 'roomNumber' : '150', 'capacity' : 80}]
-    if Room.query.count() == 0:
-        for room in allrooms:
-            theroom = Room (building = room['building'],roomNumber=room['roomNumber'], capacity = room['capacity'] ) 
-            db.session.add(theroom)
-            db.session.commit()
+    if app.got_first_request:
+        db.create_all()
+        # create the rooms 
+        allrooms = [{'building' : 'EME', 'roomNumber' : 'B46', 'capacity' : 60}, 
+                    {'building' : 'Sloan', 'roomNumber' : '175', 'capacity' : 100},
+                    {'building' : 'Sloan', 'roomNumber' : '150', 'capacity' : 80}]
+        if Room.query.count() == 0:
+            for room in allrooms:
+                theroom = Room (building = room['building'],roomNumber=room['roomNumber'], capacity = room['capacity'] ) 
+                db.session.add(theroom)
+                db.session.commit()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():  
