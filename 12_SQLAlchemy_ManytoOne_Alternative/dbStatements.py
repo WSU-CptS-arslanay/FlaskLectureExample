@@ -1,6 +1,7 @@
 
 from app import db
 from app.models import Course, Room
+app.app_context().push()
 db.create_all()
 # create Course and write it to DB
 newCourse = Course(major='CptS',coursenum='322', title='Software Engineering', roomid = 1)

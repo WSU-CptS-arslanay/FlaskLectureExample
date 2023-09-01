@@ -17,3 +17,5 @@ class Room(db.Model):
     roomNumber = db.Column(db.String(20))   
     capacity = db.Column(db.Integer)
     courses = db.relationship('Course', backref = 'classroom', lazy = "dynamic")
+    def __repr__(self):
+        return '<Room {},{},{},{} >'.format(self.id, self.building, self.roomNumber, self.capacity)

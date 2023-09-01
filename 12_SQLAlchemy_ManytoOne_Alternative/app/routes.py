@@ -27,6 +27,7 @@ def index():
         if (form.major.data is not None) and (form.coursenum.data is not None):
             #check if course already exists
             _coursecount = Course.query.filter_by(major=form.major.data).filter_by(coursenum=form.coursenum.data).count()
+            #print(form.classroom.data)
             if _coursecount < 1:
                 newcourse = Course(major = form.major.data,coursenum = form.coursenum.data,title = form.title.data, roomid = form.classroom.data.id)
                 db.session.add(newcourse)

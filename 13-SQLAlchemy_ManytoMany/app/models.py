@@ -37,7 +37,7 @@ class TeachingAssistant(db.Model):
         primaryjoin=(assigned.c.ta_id == id), lazy='dynamic', overlaps="tas")
 
     def __repr__(self):
-        return '<TA {} - {} {} - {};>'.format(self.id,self.firstname, self.lastname)
+        return '<TA {} - {};>'.format(self.id,self.ta_name)
 
 
 class Room(db.Model):

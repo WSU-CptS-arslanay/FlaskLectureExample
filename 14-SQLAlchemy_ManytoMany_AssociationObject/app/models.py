@@ -40,7 +40,7 @@ class TeachingAssistant(db.Model):
     ta_name =  db.Column(db.String(100))
     taships = db.relationship('TA_Assignment', back_populates = 'ta_assigned')
     def __repr__(self):
-        return '<TA {} - {} {} - {};>'.format(self.id,self.firstname, self.lastname)
+        return '<TA {} - {};>'.format(self.id,self.ta_name)
 
 class TA_Assignment(db.Model):
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'), primary_key=True)
