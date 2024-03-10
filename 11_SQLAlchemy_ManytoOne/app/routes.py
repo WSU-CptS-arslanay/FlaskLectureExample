@@ -8,12 +8,12 @@ from app.models import Course, Room
 
 @app.before_request
 def initDB(*args, **kwargs):
-    if app.got_first_request:
+    if app._got_first_request:
         db.create_all()
         # create the rooms 
-        allrooms = [{'building' : 'EME', 'roomNumber' : 'B46', 'capacity' : 60}, 
-                    {'building' : 'Sloan', 'roomNumber' : '175', 'capacity' : 100},
-                    {'building' : 'Sloan', 'roomNumber' : '150', 'capacity' : 80}]
+        allrooms = [{'building' : 'Fuller', 'roomNumber' : 'B46', 'capacity' : 60}, 
+                    {'building' : 'UnityHall', 'roomNumber' : '175', 'capacity' : 100},
+                    {'building' : 'UnityHall', 'roomNumber' : '150', 'capacity' : 80}]
         if Room.query.count() == 0:
             for room in allrooms:
                 theroom = Room (building = room['building'],roomNumber=room['roomNumber'], capacity = room['capacity'] ) 

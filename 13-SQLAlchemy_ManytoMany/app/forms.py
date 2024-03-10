@@ -11,7 +11,7 @@ def getRoomLabel(theroom):
     return "{} - {}".format(theroom.building, theroom.roomNumber)
 
 class CourseForm(FlaskForm):
-    major = SelectField(label= "Please select major:", choices = ['CptS', 'EE','MATH','ME', 'CHE'],validators=[DataRequired()])
+    major = SelectField(label= "Please select major:", choices = ['CS', 'EE','MATH','ME', 'RBE'],validators=[DataRequired()])
     coursenum = StringField(label= "Please enter course number:", validators=[DataRequired()])
     title = StringField(label= "Please enter course title:", validators=[DataRequired()])
     classroom = QuerySelectField('Classroom', query_factory = get_rooms, get_label = getRoomLabel , allow_blank=False)

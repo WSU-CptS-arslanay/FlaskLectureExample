@@ -8,7 +8,7 @@ from app.models import Course
 
 @app.before_request
 def initDB(*args, **kwargs):
-    if app.got_first_request:
+    if app._got_first_request:
         db.create_all()
 
 @app.route('/', methods=['GET', 'POST'])

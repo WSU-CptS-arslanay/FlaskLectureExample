@@ -17,6 +17,6 @@ def mycourse(name):
 def appname():
     return "<h1>Application name:{}</h1>".format(__name__)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
 
